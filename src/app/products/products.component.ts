@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { OrderComponent } from '../order/order.component';
-
-export class Product {
-  label: string;
-  icon?: string;
-  price?: number;
-}
+import { Product } from '../product';
 
 @Component({
   selector: 'app-products',
@@ -37,11 +32,14 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openOrderDialog(): void {
+  openOrderDialog(product: Product): void {
     const dialogRef = this.dialog.open(OrderComponent, {
-      width: '80%',
-      data: { product: Product }
-    })
+      width: '50%',
+      data: { product: product }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
   }
 
 }

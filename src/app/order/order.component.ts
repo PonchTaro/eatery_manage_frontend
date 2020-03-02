@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Product } from '../products/products.component';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CompleteOrderComponent } from './complete-order/complete-order.component';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-order',
@@ -8,17 +10,33 @@ import { Product } from '../products/products.component';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-  product: Product = { label: '生ビール(中)', icon: 'local_drink' };
+  product: Product;
 
   constructor(
-    private route: ActivatedRoute
+    public dialogRef: MatDialogRef<OrderComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { product: Product },
+    private _snackBar: MatSnackBar,
   ) {
-    route.params.subscribe(
-      params => console.log(params)
-    );
+    this.product = data.product;
   }
 
   ngOnInit(): void {
   }
 
+  clear(): void {
+    this.dialogRef.close();
+  }
+
+  order(): void {
+    this.dialogRef.close(this.product);
+    const snackBarRef = this._snackBar.openFromComponent(
+      CompleteOrderComponent,
+      { data: this.product }
+    );
+    snackBarRef.afterDismissed().subscribe(
+      _ => {
+        console.log('注文完了');
+      }
+    );
+  }
 }

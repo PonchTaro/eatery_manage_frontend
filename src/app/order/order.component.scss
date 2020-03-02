@@ -1,24 +1,16 @@
 :host {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+}
+.right {
+    text-align: right;
 }
 
-mat-card {
-    width: 80%;
-    height: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    mat-card-header {
-        align-content: center;
-        width: 100%;
-    }
-    mat-icon {
-        font-size: 5em;
-        width: 30%;
-        height: 100%;
-    }
+mat-icon.product {
+    font-size: 5em;
+    width: 30%;
+    height: 100%;
+}
+
+.full-width {
+    width: 100%;
 }

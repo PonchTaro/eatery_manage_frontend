@@ -9,9 +9,13 @@
 </div>
 <mat-divider></mat-divider>
 <div class="container">
-    <app-categorized-product></app-categorized-product>
+    <app-categorized-products
+        [products]="drinks"
+        (selected)="openOrderDialog($event)"
+    >
+    </app-categorized-products>
 </div>
 <mat-divider></mat-divider>
 <div class="container">
-    <app-speed></app-speed>
+    <app-categorized-products [products]="speeds"></app-categorized-products>
 </div>

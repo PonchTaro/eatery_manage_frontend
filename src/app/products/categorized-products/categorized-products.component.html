@@ -1,6 +1,6 @@
 <mat-grid-list cols="3" rowHeight="15em">
-    <mat-grid-tile *ngFor="let drink of products">
-        <mat-card class='pad-zero' (click)="productSelected()">
+    <mat-grid-tile *ngFor="let product of products">
+        <mat-card class='pad-zero' (click)="productSelected(product)">
             <mat-card-content>
                 <mat-icon>{{product.icon}}</mat-icon>
             </mat-card-content>

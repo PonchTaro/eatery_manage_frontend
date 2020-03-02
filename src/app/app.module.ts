@@ -19,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const MatModules = [
   MatSliderModule,
@@ -32,22 +33,23 @@ const MatModules = [
   MatCardModule,
   MatGridListModule,
   MatDialogModule,
+  MatSnackBarModule,
 ]
 // その他
 import { TopComponent } from './top/top.component';
 import { ProductsComponent } from './products/products.component';
-import { DrinkComponent } from './products/drink/drink.component';
-import { SpeedComponent } from './products/speed/speed.component';
 import { OrderComponent } from './order/order.component';
+import { CategorizedProductsComponent } from './products/categorized-products/categorized-products.component';
+import { CompleteOrderComponent } from './order/complete-order/complete-order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopComponent,
     ProductsComponent,
-    DrinkComponent,
-    SpeedComponent,
-    OrderComponent
+    OrderComponent,
+    CategorizedProductsComponent,
+    CompleteOrderComponent,
   ],
   imports: [
     BrowserModule,
