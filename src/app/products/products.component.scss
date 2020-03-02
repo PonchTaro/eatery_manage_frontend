@@ -1,0 +1,22 @@
+:host {
+    width: 100%;
+}
+
+:host ::ng-deep .container {
+    width: 100%;
+    padding: 20px;
+    mat-card-header {
+        text-align: center;
+    }
+}
+
+//スマホとパソコンで変えたい
+.form {
+    margin-left: auto;
+    margin-right: 20px;
+    width: 30%;
+}
+
+.full-width {
+    width: 100%;
+}

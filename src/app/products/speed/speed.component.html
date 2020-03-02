@@ -1,0 +1,12 @@
+<mat-grid-list cols="3" rowHeight="15em">
+    <mat-grid-tile *ngFor="let speed of speeds">
+        <mat-card class='pad-zero' (click)="productSelected()">
+            <mat-card-content>
+                <mat-icon>{{speed.icon}}</mat-icon>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-title>{{speed.label}}</mat-card-title>
+            </mat-card-footer>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
