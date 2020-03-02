@@ -1,16 +1,15 @@
 <!-- ToolBar -->
-<mat-toolbar color="primary">
-  <span>
-    <button mat-icon-button aria-label="Sidebarようのボタン" (click)="drawer.toggle()">
-      <mat-icon>list</mat-icon>
-    </button>
-    飲食店管理アプリ
-  </span>
-  <span class="fill-remaining-space"></span>
-</mat-toolbar>
-
 <!-- Sidenav -->
-<mat-drawer-container class="container" autosize>
+<mat-drawer-container class="container" autosize fullscreen>
+    <mat-toolbar color="primary">
+      <span>
+        <button mat-icon-button aria-label="Sidebarようのボタン" (click)="drawer.toggle()">
+          <mat-icon>list</mat-icon>
+        </button>
+        飲食店管理アプリ
+      </span>
+      <span class="fill-remaining-space"></span>
+    </mat-toolbar>
     <mat-drawer #drawer [opened]="true" class="sidenav" mode="side">
       <app-toolbar></app-toolbar>
     </mat-drawer>
@@ -19,6 +18,6 @@
       <!-- MainContent -->
       <router-outlet></router-outlet>
     </div>
-  
-  </mat-drawer-container>
+
+</mat-drawer-container>
 

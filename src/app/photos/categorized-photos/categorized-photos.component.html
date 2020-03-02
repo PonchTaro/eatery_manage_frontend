@@ -1,0 +1,12 @@
+<mat-grid-list cols="3" rowHeight="15em">
+    <mat-grid-tile *ngFor="let photo of photos">
+        <mat-card class="pad-zero" (click)="photoSelected(photo)">
+            <mat-card-content>
+                <mat-icon>{{photo.icon}}</mat-icon>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-card-title>{{photo.label}}</mat-card-title>
+            </mat-card-footer>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

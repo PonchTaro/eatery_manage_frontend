@@ -5,13 +5,13 @@
 </h1>
 <div mat-dialog-content>
     <h1>{{product.label}}</h1>
-    <h3>¥{{product.price}}</h3>
+    <h3>{{product.price | currency: 'JPY'}}</h3>
     <h1>
         <mat-icon class="product">{{product.icon}}</mat-icon>
     </h1>
 </div>
 <div mat-dialog-actions align="center">
-  <button class="full-width" mat-button (click)="order()" dkFocusInitial>
+  <button class="full-width order" mat-button (click)="order()" dkFocusInitial>
       注文する
   </button>
 </div>
