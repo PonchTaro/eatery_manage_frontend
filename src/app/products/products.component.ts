@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Product } from '../product';
 import { OrderComponent } from './order/order.component';
+import { ProductService } from '../core/services/product.service';
+import { EateryService } from '../core/services/eatery.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -9,25 +12,29 @@ import { OrderComponent } from './order/order.component';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  drinks: Product[] = [
-    { label: '生ビール(中)', icon: 'local_drink', price: 298 },
-    { label: 'ハイボール', icon: 'local_drink' },
-    { label: 'レモンサワー', icon: 'local_drink' },
-    { label: 'カシスオレンジ', icon: 'local_drink' },
-    { label: '烏龍茶', icon: 'local_drink' },
-  ];
-
-  speeds: Product[] = [
-    { label: '枝豆', icon: 'restaurant' },
-    { label: 'たこわさ', icon: 'restaurant' },
-    { label: 'チャンジャ', icon: 'restaurant' },
-    { label: '唐揚げ', icon: 'restaurant' },
-    { label: 'キムチ', icon: 'restaurant' },
-  ];
+  items: { [category: string]: Product[] };
 
   constructor(
     public dialog: MatDialog,
-  ) { }
+    private eateryService: EateryService,
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) {
+    this.route.params.subscribe(params => {
+      this.productService.getProducts(params['id']).subscribe(products => {
+        const result = {};
+        console.log(products);
+        products.forEach(val => {
+          if (val.category in result) {
+            result[val.category].push(val);
+          } else {
+            result[val.category] = [val];
+          }
+        });
+        this.items = result;
+      });
+    });
+  }
 
   ngOnInit(): void {
   }

@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { EateryService } from '../core/services/eatery.service';
 
 @Component({
   selector: 'app-top',
-  templateUrl: './top.component.html',
-  styleUrls: ['./top.component.scss']
+  template: '',
+  styles: ['']
 })
-export class TopComponent implements OnInit {
+export class TopComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    // なんらかのストレージからどの飲食店にアクセス中かを取得
+    // なければNotFound      
   }
-
 }

@@ -8,6 +8,7 @@ import { Product } from 'src/app/product';
 })
 export class CategorizedProductsComponent implements OnInit {
   @Input() products: Product[];
+  @Input() category: string;
 
   @Output() selected = new EventEmitter<Product>();
 

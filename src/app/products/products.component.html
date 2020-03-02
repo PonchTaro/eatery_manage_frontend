@@ -7,15 +7,11 @@
         </mat-form-field>
     </form>  
 </div>
-<mat-divider></mat-divider>
-<div class="container">
+<ng-container *ngFor="let item of items | keyvalue">
     <app-categorized-products
-        [products]="drinks"
-        (selected)="openOrderDialog($event)"
+    [products]="item.value"
+    [category]="item.key"
+    (selected)="openOrderDialog($event)"
     >
     </app-categorized-products>
-</div>
-<mat-divider></mat-divider>
-<div class="container">
-    <app-categorized-products [products]="speeds"></app-categorized-products>
-</div>
+</ng-container>
