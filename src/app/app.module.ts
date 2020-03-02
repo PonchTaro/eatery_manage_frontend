@@ -41,6 +41,12 @@ import { ProductsComponent } from './products/products.component';
 import { OrderComponent } from './order/order.component';
 import { CategorizedProductsComponent } from './products/categorized-products/categorized-products.component';
 import { CompleteOrderComponent } from './order/complete-order/complete-order.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { HistoryComponent } from './history/history.component';
+import { CallComponent } from './call/call.component';
+import { UsageComponent } from './usage/usage.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PhotosComponent } from './photos/photos.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +56,12 @@ import { CompleteOrderComponent } from './order/complete-order/complete-order.co
     OrderComponent,
     CategorizedProductsComponent,
     CompleteOrderComponent,
+    ToolbarComponent,
+    HistoryComponent,
+    CallComponent,
+    UsageComponent,
+    PaymentComponent,
+    PhotosComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,31 +12,7 @@
 <!-- Sidenav -->
 <mat-drawer-container class="container" autosize>
     <mat-drawer #drawer [opened]="true" class="sidenav" mode="side">
-        <mat-nav-list>
-            <h1 mat-header>
-              鳥貴族 東通り３号店
-            </h1>
-            <mat-list-item routerLink="products">
-               <mat-icon mat-list-icon>menu</mat-icon>
-               <h4 mat-line>メニュー</h4>
-            </mat-list-item>
-            <mat-list-item>
-              <mat-icon mat-list-icon>history</mat-icon>
-              <h4 mat-line>注文履歴</h4>
-            </mat-list-item>
-            <mat-list-item>
-              <mat-icon mat-list-icon>payment</mat-icon>
-              <h4 mat-line>お会計</h4>
-            </mat-list-item>
-            <mat-list-item>
-                <mat-icon mat-list-icon>help</mat-icon>
-                <h4 mat-line>使い方</h4>
-              </mat-list-item>
-              <mat-list-item>
-                <mat-icon mat-list-icon>notification_important</mat-icon>
-                <h4 mat-line>スタッフを呼ぶ</h4>
-              </mat-list-item>
-          </mat-nav-list>
+      <app-toolbar></app-toolbar>
     </mat-drawer>
   
     <div class="sidenav-content">
