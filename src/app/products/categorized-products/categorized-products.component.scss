@@ -2,11 +2,20 @@
     width: 100%;
 }
 
+
+$break-small: 640px;
+$break-large: 1200px;
+    
+
 mat-card {
-    width: 80%;
+    @media screen and (min-width: $break-large) {
+        width: 80%;
+    }
     text-align: center;
     mat-icon {
-        font-size: 5em;
+        @media screen and (min-width: $break-large) {
+            font-size: 5em;
+        }
         width: 30%;
         height: 100%;
     }

@@ -2,6 +2,6 @@
 <mat-nav-list>
     <mat-list-item *ngFor="let product of history">
         <mat-icon matListIcon>{{product.icon}}</mat-icon>
-        <span matBadge="4" matBadgeOverlap="false">{{product.label}}</span>
+        <span matBadge="4" matBadgeOverlap="false">{{product.name}}/{{product.price | currency: 'JPY'}}</span>
     </mat-list-item>
 </mat-nav-list>

@@ -13,6 +13,11 @@ const routes: Routes = [
   { path: '', component: TopComponent, pathMatch: 'full' },
   {
     path: 'eatery/:id', children: [
+      {
+        path: 'admin', children: [
+
+        ]
+      },
       { path: '', redirectTo: 'products', pathMatch: 'full' },
       { path: 'products', component: ProductsComponent },
       { path: 'history', component: HistoryComponent },

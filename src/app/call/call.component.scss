@@ -5,13 +5,13 @@
     justify-content: center;
 }
 mat-card {
-    width: 60%;
-    height: 50%;
+    width: 30%;
+    height: 30%;
     margin: auto;
     mat-card-content {
         margin: 2em auto 2em;
-        height: 100%;
-        width: 60%
+        height: 50%;
+        width: 30%
     }
 }
 
@@ -19,6 +19,6 @@ button {
     height: 80%;
     width: 80%;
     mat-icon {
-        font-size: 10em;
+        font-size: 5em;
     }
 }

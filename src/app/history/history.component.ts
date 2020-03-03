@@ -9,11 +9,11 @@ import { ProductsComponent } from '../products/products.component';
 })
 export class HistoryComponent implements OnInit {
   history: Product[] = [
-    { label: '生ビール(中)', icon: 'local_drink', price: 298 },
-    { label: 'ハイボール', icon: 'local_drink', price: 300 },
-    { label: 'レモンサワー', icon: 'local_drink', price: 300 },
-    { label: 'カシスオレンジ', icon: 'local_drink', price: 300 },
-    { label: '烏龍茶', icon: 'local_drink', price: 300 },
+    { name: '生ビール(中)', icon: 'local_drink', price: 298 },
+    { name: 'ハイボール', icon: 'local_drink', price: 300 },
+    { name: 'レモンサワー', icon: 'local_drink', price: 300 },
+    { name: 'カシスオレンジ', icon: 'local_drink', price: 300 },
+    { name: '烏龍茶', icon: 'local_drink', price: 300 },
   ];
   total: number = 0;
 

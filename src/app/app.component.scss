@@ -5,15 +5,35 @@
     }
 }
 
-.sidenav-content {
+
+$break-small: 640px;
+$break-large: 1200px;
+    
+.at-sidenav-closed-content {
     display: flex;
     padding: 20px;
     height: 100%;
 }
 
+.at-sidenav-opend-content {
+    display: flex;
+    height: 100%;
+    @media screen and (max-width: $break-small) {
+        width: 20%;
+    }
+    @media screen and (min-width: $break-large) {
+        width: 80%;
+    }
+}
+
 .sidenav {
-    padding: 20px;
-    width: 20%;
+    @media screen and (max-width: $break-small) {
+        width: 80%;
+    }
+    @media screen and (min-width: $break-large) {
+        padding: 20px;
+        width: 20%;
+    }
     background-color:#3F51B5;
     color: white;
 }

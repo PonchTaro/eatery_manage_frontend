@@ -16,16 +16,6 @@ export class Eatery {
 export class EateryService {
   _eatery: Eatery;
   _eatery$: Subject<Eatery> = new Subject<Eatery>();
-
-  constructor(
-    private http: HttpClient
-  ) { }
-
-  getEeatery(id: number): Observable<Eatery> {
-    return this.http.get<Eatery>(`api/v1/eateries/${id}/`).pipe(
-      tap(val => this.setEatery(val))
-    );
-  }
   private setEatery(val: Eatery) {
     this._eatery = val;
     this._eatery$.next(val);
@@ -36,5 +26,15 @@ export class EateryService {
   }
   get eatery$(): Observable<Eatery> {
     return this._eatery$.asObservable();
+  }
+
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  getEeatery(id: number): Observable<Eatery> {
+    return this.http.get<Eatery>(`api/v1/eateries/${id}/`).pipe(
+      tap(val => this.setEatery(val))
+    );
   }
 }

@@ -6,7 +6,7 @@
         <button mat-icon-button aria-label="Sidebarようのボタン" (click)="drawer.toggle()">
           <mat-icon>list</mat-icon>
         </button>
-        飲食店管理アプリ
+        Me-new
       </span>
       <span class="fill-remaining-space"></span>
     </mat-toolbar>
@@ -14,7 +14,13 @@
       <app-toolbar></app-toolbar>
     </mat-drawer>
   
-    <div class="sidenav-content">
+    <div
+      [ngClass]="{
+        'at-sidenav-closed-content': !drawer.opened,
+        'at-sidenav-opend-content': drawer.opened
+      }"
+      *ngIf="!drawer.opened"
+    >
       <!-- MainContent -->
       <router-outlet></router-outlet>
     </div>
