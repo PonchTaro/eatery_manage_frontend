@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/core/product/product';
+import { InvoiceService } from '@app/core/invoice/invoice.service';
+import { ActivatedRoute } from '@angular/router';
+import { Order } from '@app/core/product/order';
 
 @Component({
   selector: 'app-history',
@@ -7,21 +9,27 @@ import { Product } from 'src/app/core/product/product';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
-  history: Product[] = [
-    { name: '生ビール(中)', icon: 'local_drink', price: 298 },
-    { name: 'ハイボール', icon: 'local_drink', price: 300 },
-    { name: 'レモンサワー', icon: 'local_drink', price: 300 },
-    { name: 'カシスオレンジ', icon: 'local_drink', price: 300 },
-    { name: '烏龍茶', icon: 'local_drink', price: 300 },
-  ];
+  orders: Order[] = [];
   total: number = 0;
 
-  constructor() { }
+  constructor(
+    invoiceService: InvoiceService,
+    route: ActivatedRoute,
+  ) {
+    route.params.subscribe(params => {
+      invoiceService.getOrders(params['invId']).subscribe(
+        products => {
+          this.orders = products;
+          this.total = 0;
+          this.orders.forEach(order => {
+            this.total += order.product.price ? order.product.price * order.number : 0;
+          });
+        }
+      );
+    });
+  }
 
   ngOnInit(): void {
-    this.history.forEach(val => {
-      this.total += val.price ? val.price : 0;
-    });
   }
 
 }

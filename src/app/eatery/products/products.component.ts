@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { EateryService } from 'src/app/core/eatery/eatery.service';
 import { ProductService } from 'src/app/core/product/product.service';
 import { Product } from 'src/app/core/product/product';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CompleteOrderComponent } from './complete-order/complete-order.component';
 
 @Component({
   selector: 'app-products',
@@ -13,15 +15,17 @@ import { Product } from 'src/app/core/product/product';
 })
 export class ProductsComponent implements OnInit {
   items: { [category: string]: Product[] };
+  invoiceId: number;
 
   constructor(
     public dialog: MatDialog,
-    private eateryService: EateryService,
+    private _snackBar: MatSnackBar,
     private route: ActivatedRoute,
     private productService: ProductService
   ) {
     this.route.params.subscribe(params => {
-      this.productService.getProducts(params['id']).subscribe(products => {
+      this.invoiceId = params['invId'];
+      this.productService.getProducts(params['eatId']).subscribe(products => {
         const result = {};
         products.forEach(val => {
           if (val.category in result) {
@@ -41,11 +45,19 @@ export class ProductsComponent implements OnInit {
   openOrderDialog(product: Product): void {
     const dialogRef = this.dialog.open(OrderComponent, {
       width: '80%',
-      data: { product: product }
+      data: { product: product, invoiceId: this.invoiceId }
     });
     // ダイアログが閉じた後の動き
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      const snackBarRef = this._snackBar.openFromComponent(
+        CompleteOrderComponent,
+        { data: product, duration: 1000 }
+      );
+      snackBarRef.afterDismissed().subscribe(
+        _ => {
+          console.log('注文完了');
+        }
+      );
     });
   }
 

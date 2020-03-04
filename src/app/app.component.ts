@@ -25,9 +25,11 @@ export class AppComponent {
       // router Eventの後はdrawerを閉じる
       this.sideNav.close();
       const eateryId = +e.url.split('/')[2];
-      // const InvoiceId = +e.url.split('/')[3];
-      this.eateryService.getEeatery(eateryId).subscribe();
-      // this.invoiceService.getInvoice(InvoiceId).subscribe();
+      const invoiceId = +e.url.split('/')[3];
+      if (eateryId && invoiceId) {
+        this.eateryService.getEeatery(eateryId).subscribe();
+        this.invoiceService.getInvoice(invoiceId).subscribe();
+      }
     });
   }
 }

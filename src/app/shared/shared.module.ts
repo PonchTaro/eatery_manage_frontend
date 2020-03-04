@@ -16,6 +16,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBadgeModule } from '@angular/material/badge';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const MatModules = [
   MatSliderModule,
@@ -37,9 +38,13 @@ const MatModules = [
   declarations: [],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     ...MatModules,
   ],
   exports: [
+    FormsModule,
+    ReactiveFormsModule,
     ...MatModules,
   ]
 })

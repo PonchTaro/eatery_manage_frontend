@@ -11,8 +11,8 @@ import { PaymentComponent } from './payment/payment.component';
 import { PhotosComponent } from './photos/photos.component';
 import { CategorizedPhotosComponent } from './photos/categorized-photos/categorized-photos.component';
 import { OrderComponent } from './products/order/order.component';
-import { CompleteOrderComponent } from './products/order/complete-order/complete-order.component';
 import { SharedModule } from '../shared/shared.module';
+import { CompleteOrderComponent } from './products/complete-order/complete-order.component';
 
 @NgModule({
   declarations: [
