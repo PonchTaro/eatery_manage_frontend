@@ -8,9 +8,7 @@ const routes: Routes = [
   {
     path: 'eatery/:id', children: [
       {
-        path: 'admin', children: [
-
-        ]
+        path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
       },
       {
         path: '', loadChildren: () => import('./eatery/eatery.module').then(m => m.EateryModule)
