@@ -24,6 +24,7 @@
     "@datorama/akita": "^4.20.1",
     "@datorama/akita-cli": "^6.1.0",
     "@datorama/akita-ng-entity-service": "^1.0.0",
+    "@datorama/akita-ng-forms-manager": "^3.3.0",
     "akita-ng-fire": "^1.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
