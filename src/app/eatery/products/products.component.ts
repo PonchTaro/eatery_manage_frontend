@@ -40,7 +40,7 @@ export class ProductsComponent implements OnInit {
 
   openOrderDialog(product: Product): void {
     const dialogRef = this.dialog.open(OrderComponent, {
-      width: '50%',
+      width: '80%',
       data: { product: product }
     });
     // ダイアログが閉じた後の動き

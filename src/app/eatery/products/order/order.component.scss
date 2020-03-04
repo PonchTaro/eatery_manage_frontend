@@ -10,12 +10,12 @@ $break-large: 1200px;
 
 mat-icon.product {
     @media screen and (max-width: $break-small) {
-        font-size: 2em;
-    }
-    @media screen and (min-width: $break-large) {
         font-size: 5em;
     }
-    width: 30%;
+    @media screen and (min-width: $break-large) {
+        font-size: 10em;
+    }
+    width: 100%;
     height: 100%;
 }
 

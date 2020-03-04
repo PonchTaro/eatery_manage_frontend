@@ -6,7 +6,7 @@ import { TopComponent } from './top/top.component';
 const routes: Routes = [
   { path: '', component: TopComponent, pathMatch: 'full' },
   {
-    path: 'eatery/:id', children: [
+    path: 'me-new/:id', children: [
       {
         path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
       },
