@@ -8,7 +8,7 @@
 
 $break-small: 640px;
 $break-large: 1200px;
-    
+
 .at-sidenav-closed-content {
     display: flex;
     padding: 20px;
@@ -32,7 +32,7 @@ $break-large: 1200px;
     }
     @media screen and (min-width: $break-large) {
         padding: 20px;
-        width: 20%;
+        width: 30%;
     }
     background-color:#3F51B5;
     color: white;

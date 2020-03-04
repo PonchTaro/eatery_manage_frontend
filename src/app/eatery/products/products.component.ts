@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { OrderComponent } from './order/order.component';
 import { ActivatedRoute } from '@angular/router';
-import { EateryService } from '../core/eatery/eatery.service';
-import { ProductService } from '../core/product/product.service';
-import { Product } from '../core/product/product';
+import { EateryService } from 'src/app/core/eatery/eatery.service';
+import { ProductService } from 'src/app/core/product/product.service';
+import { Product } from 'src/app/core/product/product';
 
 @Component({
   selector: 'app-products',
