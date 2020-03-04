@@ -129,6 +129,7 @@
   },
   "defaultProject": "eateryMange",
   "cli": {
-    "analytics": "b3cd68b7-2c6d-4897-ae14-37d0550ee0c1"
+    "analytics": "b3cd68b7-2c6d-4897-ae14-37d0550ee0c1",
+    "defaultCollection": "@datorama/akita"
   }
 }

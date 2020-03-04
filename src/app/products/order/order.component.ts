@@ -2,8 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CompleteOrderComponent } from './complete-order/complete-order.component';
-import { Product } from 'src/app/product';
-import { InvoiceService } from 'src/app/core/services/invoice.service';
+import { InvoiceService } from 'src/app/core/invoice/invoice.service';
+import { Product } from 'src/app/core/product/product';
 
 @Component({
   selector: 'app-order',

@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatSidenav, MatDrawer } from '@angular/material/sidenav';
-import { EateryService, Eatery } from './core/services/eatery.service';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { MatDrawer } from '@angular/material/sidenav';
+import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { InvoiceService } from './core/services/invoice.service';
+import { EateryService } from './core/eatery/eatery.service';
+import { InvoiceService } from './core/invoice/invoice.service';
 
 
 @Component({

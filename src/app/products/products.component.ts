@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Product } from '../product';
 import { OrderComponent } from './order/order.component';
-import { ProductService } from '../core/services/product.service';
-import { EateryService } from '../core/services/eatery.service';
 import { ActivatedRoute } from '@angular/router';
+import { EateryService } from '../core/eatery/eatery.service';
+import { ProductService } from '../core/product/product.service';
+import { Product } from '../core/product/product';
 
 @Component({
   selector: 'app-products',
@@ -23,7 +23,6 @@ export class ProductsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.productService.getProducts(params['id']).subscribe(products => {
         const result = {};
-        console.log(products);
         products.forEach(val => {
           if (val.category in result) {
             result[val.category].push(val);
@@ -44,6 +43,7 @@ export class ProductsComponent implements OnInit {
       width: '50%',
       data: { product: product }
     });
+    // ダイアログが閉じた後の動き
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });

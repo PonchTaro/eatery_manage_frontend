@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EateryService, Eatery } from '../core/services/eatery.service';
 import { Observable } from 'rxjs';
+import { EateryService } from '../core/eatery/eatery.service';
+import { Eatery } from '../core/eatery/eatery';
 
 @Component({
   selector: 'app-toolbar',

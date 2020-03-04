@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Product } from 'src/app/product';
+import { Product } from 'src/app/core/product/product';
 
 @Component({
   selector: 'app-categorized-photos',

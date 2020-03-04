@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar';
-import { Product } from 'src/app/product';
+import { Product } from 'src/app/core/product/product';
 
 @Component({
   selector: 'app-complete-order',

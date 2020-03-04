@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/product';
-import { Table } from './table.service';
 import { HttpClient } from '@angular/common/http';
+import { Invoice } from './invoice';
 
-export class Invoice {
-  table: Table;
-  products: Product[];
-}
 
 @Injectable({
   providedIn: 'root'

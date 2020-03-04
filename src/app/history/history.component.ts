@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../product';
-import { ProductsComponent } from '../products/products.component';
+import { Product } from '../core/product/product';
 
 @Component({
   selector: 'app-history',

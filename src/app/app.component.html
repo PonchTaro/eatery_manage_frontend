@@ -1,29 +1,41 @@
 <!-- ToolBar -->
 <!-- Sidenav -->
-<mat-drawer-container class="container" autosize fullscreen>
-    <mat-toolbar color="primary">
-      <span>
-        <button mat-icon-button aria-label="Sidebarようのボタン" (click)="drawer.toggle()">
-          <mat-icon>list</mat-icon>
-        </button>
-        Me-new
-      </span>
-      <span class="fill-remaining-space"></span>
-    </mat-toolbar>
-    <mat-drawer #drawer [opened]="true" class="sidenav" mode="side">
-      <app-toolbar></app-toolbar>
-    </mat-drawer>
-  
-    <div
-      [ngClass]="{
+<mat-drawer-container
+  class="container"
+  autosize
+  fullscreen
+>
+  <mat-toolbar color="primary">
+    <span>
+      <button
+        mat-icon-button
+        aria-label="Sidebarようのボタン"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>list</mat-icon>
+      </button>
+      Me-new
+    </span>
+    <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+  <mat-drawer
+    #drawer
+    [opened]="true"
+    class="sidenav"
+    mode="side"
+  >
+    <app-toolbar></app-toolbar>
+  </mat-drawer>
+
+  <div
+    [ngClass]="{
         'at-sidenav-closed-content': !drawer.opened,
         'at-sidenav-opend-content': drawer.opened
       }"
-      *ngIf="!drawer.opened"
-    >
-      <!-- MainContent -->
-      <router-outlet></router-outlet>
-    </div>
+    *ngIf="!drawer.opened"
+  >
+    <!-- MainContent -->
+    <router-outlet></router-outlet>
+  </div>
 
 </mat-drawer-container>
-
