@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+        <span>
+                <button
+                    mat-icon-button
+                    aria-label="Sidebarようのボタン"
+                    (click)="drawer.toggle()"
+                >
+                    <mat-icon>list</mat-icon>
+                </button>
+                Me-new
+            </span>
+            <span class="fill-remaining-space"></span>
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="manageMenu"
+            >
+                <mat-icon aria-hidden="false">edit</mat-icon>
+            </button>
+            <mat-menu #manageMenu="matMenu">
+                <ng-container *ngIf="eatery">
+                      <button
+                        mat-menu-item
+                        [routerLink]="['me-new', eatery.id, 'admin', 'manager', 'eatery']"
+                      >
+                      店舗情報更新
+                      </button>
+                      <button
+                        mat-menu-item
+                        [routerLink]="['me-new', eatery.id, 'admin', 'manager', 'product']"
+                      >
+                        商品管理
+                      </button>
+                      <button
+                        mat-menu-item
+                        [routerLink]="['me-new', eatery.id, 'admin', 'manager', 'table']"
+                      >
+                      テーブル管理
+                      </button>      
+                </ng-container>
+            </mat-menu>            
+</mat-toolbar>  

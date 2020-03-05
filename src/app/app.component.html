@@ -5,26 +5,14 @@
   autosize
   fullscreen
 >
-  <mat-toolbar color="primary">
-    <span>
-      <button
-        mat-icon-button
-        aria-label="Sidebarようのボタン"
-        (click)="drawer.toggle()"
-      >
-        <mat-icon>list</mat-icon>
-      </button>
-      Me-new
-    </span>
-    <span class="fill-remaining-space"></span>
-  </mat-toolbar>
+  <app-toolbar [drawer]="drawer" [eatery]="eatery"></app-toolbar>
   <mat-drawer
     #drawer
     [opened]="true"
     class="sidenav"
     mode="side"
   >
-    <app-toolbar></app-toolbar>
+    <app-sidenav></app-sidenav>
   </mat-drawer>
 
   <div

@@ -1,0 +1,6 @@
+<mat-nav-list>
+    <mat-list-item *ngFor="let eatery of eateries">
+        <mat-icon matListIcon>restaurant</mat-icon>
+        <span [routerLink]="['me-new', eatery.id]">{{eatery.name}}</span>
+    </mat-list-item>
+</mat-nav-list>

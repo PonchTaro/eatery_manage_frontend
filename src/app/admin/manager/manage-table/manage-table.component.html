@@ -1,0 +1,30 @@
+<mat-grid-list
+  cols="3"
+>
+  <mat-grid-tile *ngFor="let table of tables">
+    <mat-card
+      (click)="tableSelected(table)"
+      [ngClass]="{using: table.is_using, available: table.is_available}"
+    >
+      <mat-card-content>
+        <ng-container *ngIf="table.is_available">
+          <mat-icon>group_add</mat-icon>
+          <mat-card-subtitle>空席</mat-card-subtitle>
+        </ng-container>
+        <ng-container *ngIf="table.is_reserved">
+          <mat-icon>local_offer</mat-icon>
+          <mat-card-subtitle>取置</mat-card-subtitle>
+        </ng-container>
+        <ng-container *ngIf="table.is_using">
+          <mat-icon>restaurant_menu</mat-icon>
+          <mat-card-subtitle>使用中</mat-card-subtitle>
+        </ng-container>
+        <mat-card-subtitle>{{table.number}}番テーブル</mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<button mat-fab color="primary">
+    <mat-icon>add</mat-icon>
+</button>

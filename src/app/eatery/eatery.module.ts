@@ -13,6 +13,8 @@ import { CategorizedPhotosComponent } from './photos/categorized-photos/categori
 import { OrderComponent } from './products/order/order.component';
 import { SharedModule } from '../shared/shared.module';
 import { CompleteOrderComponent } from './products/complete-order/complete-order.component';
+import { IssueVoucherComponent } from './issue-voucher/issue-voucher.component';
+import { EateryTopComponent } from './eatery-top/eatery-top.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { CompleteOrderComponent } from './products/complete-order/complete-order
     PaymentComponent,
     PhotosComponent,
     CategorizedPhotosComponent,
+    IssueVoucherComponent,
+    EateryTopComponent,
   ],
   entryComponents: [
     OrderComponent,

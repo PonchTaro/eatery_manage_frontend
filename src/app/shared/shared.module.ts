@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // material design
 import { MatSliderModule } from '@angular/material/slider';
@@ -16,7 +16,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBadgeModule } from '@angular/material/badge';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
 
 const MatModules = [
   MatSliderModule,
@@ -32,6 +33,8 @@ const MatModules = [
   MatDialogModule,
   MatSnackBarModule,
   MatBadgeModule,
+  MatTableModule,
+  MatMenuModule,
 ]
 
 @NgModule({

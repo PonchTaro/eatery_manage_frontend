@@ -7,18 +7,20 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 
 // その他
-import { ToolbarComponent } from './toolbar/toolbar.component';
 import { TopComponent } from './top/top.component';
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
+import { SideNavComponent } from './navigation/sidenav/sidenav.component';
+import { ToolbarComponent } from './navigation/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopComponent,
+    SideNavComponent,
     ToolbarComponent,
   ],
   imports: [

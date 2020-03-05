@@ -1,7 +1,8 @@
 import { Table } from '../table/table';
 import { Product } from '../product/product';
 
-export class Invoice {
+export class Voucher {
+    id: number;
     table: Table;
     products: Product[];
 }

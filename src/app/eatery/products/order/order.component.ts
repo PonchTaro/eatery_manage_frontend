@@ -1,9 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { InvoiceService } from 'src/app/core/invoice/invoice.service';
 import { Product } from 'src/app/core/product/product';
-import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { VoucherService } from '@app/core/voucher/voucher.service';
 
 @Component({
   selector: 'app-order',
@@ -12,17 +11,17 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 })
 export class OrderComponent implements OnInit {
   product: Product;
-  invoiceId: number;
+  voucherId: number;
   numberForm: FormControl;
 
   constructor(
     public dialogRef: MatDialogRef<OrderComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { product: Product, invoiceId: number },
-    private invoiceService: InvoiceService,
+    @Inject(MAT_DIALOG_DATA) public data: { product: Product, voucherId: number },
+    private voucherService: VoucherService,
     private fb: FormBuilder,
   ) {
     this.product = data.product;
-    this.invoiceId = data.invoiceId;
+    this.voucherId = data.voucherId;
     this.numberForm = this.fb.control(1, [Validators.min(1)]);
   }
 
@@ -35,7 +34,7 @@ export class OrderComponent implements OnInit {
 
   order(product: Product): void {
     // 明細に追加
-    this.invoiceService.order(this.invoiceId, product).subscribe(
+    this.voucherService.order(this.voucherId, product, this.numberForm.value).subscribe(
       res => console.log(res)
     );
     this.dialogRef.close(this.product);

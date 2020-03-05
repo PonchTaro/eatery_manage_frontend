@@ -6,15 +6,24 @@ import { PaymentComponent } from './payment/payment.component';
 import { UsageComponent } from './usage/usage.component';
 import { CallComponent } from './call/call.component';
 import { PhotosComponent } from './photos/photos.component';
+import { IssueVoucherComponent } from './issue-voucher/issue-voucher.component';
+import { EateryTopComponent } from './eatery-top/eatery-top.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'products', pathMatch: 'full' },
-  { path: 'products', component: ProductsComponent },
-  { path: 'history', component: HistoryComponent },
-  { path: 'payment', component: PaymentComponent },
-  { path: 'photos', component: PhotosComponent },
-  { path: 'usage', component: UsageComponent },
-  { path: 'call', component: CallComponent },
+  { path: 'visit/:tableId', component: IssueVoucherComponent },
+  {
+    path: ':voucherId', children: [
+      { path: 'products', component: ProductsComponent },
+      { path: 'history', component: HistoryComponent },
+      { path: 'payment', component: PaymentComponent },
+      { path: 'photos', component: PhotosComponent },
+      { path: 'usage', component: UsageComponent },
+      { path: 'call', component: CallComponent },
+      { path: '', redirectTo: 'products', pathMatch: 'full' },
+    ]
+  },
+  { path: '', component: EateryTopComponent },
+
 ];
 
 @NgModule({

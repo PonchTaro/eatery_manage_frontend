@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TopComponent } from './top/top.component';
+import { EateryTopComponent } from './eatery/eatery-top/eatery-top.component';
 
 
 const routes: Routes = [
@@ -11,9 +12,8 @@ const routes: Routes = [
         path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
       },
       {
-        path: ':invId', loadChildren: () => import('./eatery/eatery.module').then(m => m.EateryModule)
-      }
-
+        path: '', loadChildren: () => import('./eatery/eatery.module').then(m => m.EateryModule)
+      },
     ]
   },
 ];

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { InvoiceService } from '@app/core/invoice/invoice.service';
 import { ActivatedRoute } from '@angular/router';
 import { Order } from '@app/core/product/order';
+import { VoucherService } from '@app/core/voucher/voucher.service';
 
 @Component({
   selector: 'app-history',
@@ -13,11 +13,11 @@ export class HistoryComponent implements OnInit {
   total: number = 0;
 
   constructor(
-    invoiceService: InvoiceService,
+    voucherService: VoucherService,
     route: ActivatedRoute,
   ) {
     route.params.subscribe(params => {
-      invoiceService.getOrders(params['invId']).subscribe(
+      voucherService.getOrders(params['voucerId']).subscribe(
         products => {
           this.orders = products;
           this.total = 0;

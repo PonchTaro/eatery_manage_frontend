@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
+import { EateryService } from '@app/core/eatery/eatery.service';
+import { Eatery } from '@app/core/eatery/eatery';
 
 @Component({
   selector: 'app-top',
-  template: '',
+  templateUrl: './top.component.html',
   styles: ['']
 })
 export class TopComponent {
+  eateries: Eatery[];
 
-  constructor() {
-    // なんらかのストレージからどの飲食店にアクセス中かを取得
-    // なければNotFound
+  constructor(
+    private eateryService: EateryService
+  ) {
+    eateryService.getEeateries().subscribe(
+      e => this.eateries = e
+    );
   }
 }
