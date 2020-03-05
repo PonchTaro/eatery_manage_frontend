@@ -24,14 +24,13 @@ export class ProductsComponent implements OnInit {
   ) {
     this.route.params.subscribe(params => {
       this.voucherId = params['voucherId'];
-      console.log(this.voucherId);
       this.eateryService.getProducts(params['eatId']).subscribe(products => {
         const result = {};
         products.forEach(val => {
-          if (val.category in result) {
-            result[val.category].push(val);
+          if (val.category.name in result) {
+            result[val.category.name].push(val);
           } else {
-            result[val.category] = [val];
+            result[val.category.name] = [val];
           }
         });
         this.items = result;

@@ -4,6 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { TableService } from '@app/core/table/table.service';
 import * as FileSaver from 'file-saver';
 import { Eatery } from '@app/core/eatery/eatery';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateTableModalComponent } from './create-table-modal/create-table-modal.component';
+import { EateryService } from '@app/core/eatery/eatery.service';
+import { EditTableModalComponent } from './edit-table-modal/edit-table-modal.component';
 
 
 function convertB64StringToFile(data: string, type: string, fileName: string) {
@@ -24,31 +28,66 @@ function convertB64StringToFile(data: string, type: string, fileName: string) {
 })
 export class ManageTableComponent implements OnInit {
   tables: Table[];
+  eatery: Eatery;
+  checked = false;
 
   constructor(
     private route: ActivatedRoute,
     private tableService: TableService,
+    public dialog: MatDialog,
+    eateryService: EateryService,
   ) {
-    this.route.params.subscribe(params => {
-      this.getTables(params['eatId']);
-    });
+    eateryService.eatery$.subscribe(
+      e => {
+        this.eatery = e;
+        this.getTables(e);
+      });
   }
 
-  getTables(eateryId: number): void {
-    this.tableService.getTables(eateryId).subscribe(
+  getTables(eatery: Eatery): void {
+    this.tableService.getTables(eatery.id).subscribe(
       tables => this.tables = tables
     );
   }
 
-  tableSelected(table: Table): void {
-    const eateryId = table.eatery instanceof Eatery ? table.eatery.id : table.eatery as number;
+
+  getCode(table: Table): void {
     // QRコードを発行して保存
     this.tableService.issueQRcode(table.id).subscribe(res => {
       convertB64StringToFile(res['code'], res['type'], `table(${res['number']}).png`);
-      this.getTables(eateryId);
+      this.getTables(table.eatery);
     });
   }
 
+  tableSelected(table: Table): void {
+    if (!this.checked) {
+      this.getCode(table);
+    } else {
+      this.edit(table);
+    }
+  }
   ngOnInit(): void {
+  }
+
+  edit(table: Table): void {
+    const dialogRef = this.dialog.open(EditTableModalComponent, {
+      width: '80%',
+      data: { eatery: this.eatery, table: table }
+    });
+    // ダイアログが閉じた後の動き
+    dialogRef.afterClosed().subscribe(_ => {
+      this.getTables(this.eatery);
+    });
+  }
+
+  create(): void {
+    const dialogRef = this.dialog.open(CreateTableModalComponent, {
+      width: '80%',
+      data: { eatery: this.eatery }
+    });
+    // ダイアログが閉じた後の動き
+    dialogRef.afterClosed().subscribe(_ => {
+      this.getTables(this.eatery);
+    });
   }
 }

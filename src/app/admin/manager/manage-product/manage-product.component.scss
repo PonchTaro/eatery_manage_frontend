@@ -1,9 +1,18 @@
 :host {
     width: 100%;
 }
-
 table {
     width: 80%;
     margin: auto;
     margin-top: 2em;
+}
+
+button#create {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+
+.right {
+    text-align: right;
 }

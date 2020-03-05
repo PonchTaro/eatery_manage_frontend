@@ -1,18 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 import { Product } from './product';
+import { Observable } from 'rxjs';
+import { environment } from '@env/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  baseUrl = environment.versionPath;
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
-  getProducts(eatery_id: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`api/v1/eateries/${eatery_id}/products/`);
+  createProduct(productForm: FormGroup): Observable<Product> {
+    return this.http.post<Product>(`${this.baseUrl}/products/`, productForm.value);
   }
+
+  editProduct(id: number, productForm: FormGroup): Observable<Product> {
+    return this.http.patch<Product>(`${this.baseUrl}/products/${id}/`, productForm.value);
+  }
+
 }

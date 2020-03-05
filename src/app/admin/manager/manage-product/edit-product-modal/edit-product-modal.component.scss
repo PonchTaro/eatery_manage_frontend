@@ -1,0 +1,41 @@
+:host {
+    width: 100%;
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+    button {
+        padding: 0;
+    }
+}
+
+mat-form-field {
+    width: 100%
+}
+
+#category {
+    width: 90%;
+}
+#category-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#category-button {
+    color: white !important;
+    background-color: #3F51B5;  
+}
+
+div.info {
+    display: block;
+    margin-top: 2em;
+    width: 100%;
+    text-align: right;
+}
+
+button.edit {
+    width: 100%;
+    color: white !important;
+    background-color: #3F51B5;
+}

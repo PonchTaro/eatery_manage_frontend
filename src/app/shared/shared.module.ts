@@ -18,6 +18,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 const MatModules = [
   MatSliderModule,
@@ -35,6 +37,8 @@ const MatModules = [
   MatBadgeModule,
   MatTableModule,
   MatMenuModule,
+  MatSelectModule,
+  MatSlideToggleModule,
 ]
 
 @NgModule({

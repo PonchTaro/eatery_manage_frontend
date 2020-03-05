@@ -28,10 +28,6 @@ export class OrderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  clear(): void {
-    this.dialogRef.close();
-  }
-
   order(product: Product): void {
     // 明細に追加
     this.voucherService.order(this.voucherId, product, this.numberForm.value).subscribe(

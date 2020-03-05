@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 import { Eatery } from './eatery';
 import { Product } from '../product/product';
 import { environment } from '@env/environment';
+import { Category } from '../product/category';
 
 
 @Injectable({
@@ -33,6 +34,10 @@ export class EateryService {
 
   getProducts(id: number): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseUrl}/eateries/${id}/products/`);
+  }
+
+  getCategories(id: number): Observable<Category[]> {
+    return this.http.get<Category[]>(`${this.baseUrl}/eateries/${id}/categories/`);
   }
 
   getEeatery(id: number): Observable<Eatery> {

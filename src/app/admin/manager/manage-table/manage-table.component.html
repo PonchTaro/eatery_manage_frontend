@@ -1,3 +1,13 @@
+
+<section class="section">
+  <mat-slide-toggle
+      class="margin"
+      [checked]="checked"
+      (change)="checked = !checked"
+  >
+  </mat-slide-toggle>
+</section>
+
 <mat-grid-list
   cols="3"
 >
@@ -25,6 +35,7 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-<button mat-fab color="primary">
+<!-- テーブル追加ボタン -->
+<button id="create" (click)="create()" mat-fab>
     <mat-icon>add</mat-icon>
 </button>

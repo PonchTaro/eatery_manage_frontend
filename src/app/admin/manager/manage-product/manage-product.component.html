@@ -1,26 +1,28 @@
-<!-- 商品追加ボタン -->
 <!-- 商品一覧 -->
 <table mat-table [dataSource]="products" class="mat-elevation-z8">
-        <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef> カテゴリ </th>
-            <td mat-cell *matCellDef="let element"> {{element.category}} </td>
-        </ng-container>
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> 商品名 </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-        <ng-container matColumnDef="price">
-            <th mat-header-cell *matHeaderCellDef> 値段 </th>
-            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
-        </ng-container>
-        <ng-container matColumnDef="edit">
-            <th mat-header-cell *matHeaderCellDef>編集</th>
-            <td mat-cell *matCellDef="let element">
-                <mat-icon>edit</mat-icon>
-            </td>
-        </ng-container>
-    
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-<!-- 商品編集ダイアログ -->
+    <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> カテゴリ </th>
+        <td mat-cell *matCellDef="let element"> {{element.category.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> 商品名 </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> 値段 </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+    <ng-container matColumnDef="star" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element" (click)="edit(element)" class="right">
+        <mat-icon>edit</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<!-- 商品追加ボタン -->
+<button id="create" (click)="create()" mat-fab>
+    <mat-icon>add</mat-icon>
+</button>

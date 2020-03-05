@@ -4,6 +4,7 @@ import { Table } from './table';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Voucher } from '../voucher/voucher';
+import { FormGroup } from '@angular/forms';
 
 
 @Injectable({
@@ -18,6 +19,14 @@ export class TableService {
 
   getTables(eatery_id: number): Observable<Table[]> {
     return this.http.get<Table[]>(`${this.baseUrl}/eateries/${eatery_id}/tables/`);
+  }
+
+  createTable(tableForm: FormGroup): Observable<Table> {
+    return this.http.post<Table>(`${this.baseUrl}/tables/`, tableForm.value);
+  }
+
+  editTable(id: number, tableForm: FormGroup): Observable<Table> {
+    return this.http.patch<Table>(`${this.baseUrl}/tables/${id}/`, tableForm.value);
   }
 
   issueQRcode(id: number): Observable<any> {

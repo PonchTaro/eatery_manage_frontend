@@ -1,0 +1,21 @@
+:host {
+    width: 100%;
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+    button {
+        padding: 0;
+    }
+}
+
+mat-form-field {
+    width: 100%
+}
+
+button.edit {
+    width: 100%;
+    color: white !important;
+    background-color: #3F51B5;
+}
