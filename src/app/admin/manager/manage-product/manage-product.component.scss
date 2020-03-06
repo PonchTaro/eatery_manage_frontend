@@ -2,17 +2,19 @@
     width: 100%;
 }
 table {
-    width: 80%;
+    width: 100%;
     margin: auto;
     margin-top: 2em;
 }
 
 button#create {
     position: fixed;
+    z-index: 2;
     right: 30px;
     bottom: 30px;
 }
 
 .right {
     text-align: right;
+    padding: 5 !important;
 }

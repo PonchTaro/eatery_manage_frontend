@@ -17,9 +17,9 @@ export class HistoryComponent implements OnInit {
     route: ActivatedRoute,
   ) {
     route.params.subscribe(params => {
-      voucherService.getOrders(params['voucerId']).subscribe(
-        products => {
-          this.orders = products;
+      voucherService.getOrders(params['voucherId']).subscribe(
+        orders => {
+          this.orders = orders;
           this.total = 0;
           this.orders.forEach(order => {
             this.total += order.product.price ? order.product.price * order.number : 0;

@@ -13,14 +13,20 @@ export class IssueVoucherComponent {
 
   constructor(
     route: ActivatedRoute,
-    router: Router,
+    private router: Router,
     private tableService: TableService
   ) {
     route.params.subscribe(params => {
       this.tableService.occupy(params['tableId']).subscribe(
         res => {
-          router.navigate(['me-new', params['eatId'], res['voucher_id']]);
+          this.goToOrderPage(params['eatId'], res['voucher_id'])
+        }, err => {
+          this.goToOrderPage(params['eatId'], err.error['voucher_id']);
         });
     })
+  }
+
+  goToOrderPage(eateryId: number, voucherId: number): void {
+    this.router.navigate(['me-new', eateryId, voucherId]);
   }
 }
