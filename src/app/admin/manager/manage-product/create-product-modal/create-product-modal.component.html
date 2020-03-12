@@ -1,45 +1,87 @@
-<h1 mat-dialog-title class="right">
-    <button mat-button (click)="dialogRef.close()">
-        <mat-icon>clear</mat-icon>
-    </button>
+<h1
+  mat-dialog-title
+  class="right"
+>
+  <button
+    mat-button
+    (click)="dialogRef.close()"
+  >
+    <mat-icon>clear</mat-icon>
+  </button>
 </h1>
 <div mat-dialog-content>
-    <form [formGroup]="productForm">
-        <!--  -->
-        <mat-form-field>
-            <mat-label>商品名</mat-label>
-            <input matInput type="text" formControlName="name" (keyup.enter)="create()">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>値段</mat-label>
-            <input matInput type="number" formControlName="price" (keyup.enter)="create()">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>アイコン</mat-label>
-            <input matInput type="text" formControlName="icon" (keyup.enter)="create()">
-        </mat-form-field>
-        <div id="category-container">
-            <mat-form-field id="category">
-                <mat-label>カテゴリ</mat-label>
-                <mat-select formControlName="category">
-                    <mat-option *ngFor="let category of categories" [value]="category.id">
-                        {{category.name}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <button mat-fab (click)="addCategory()" id="category-button">
-                <mat-icon>add</mat-icon>
-            </button>
-        </div>
-    </form>
-    <div class="info">
-      アイコンは
-      <a href="https://material.io/resources/icons/">こちら</a>
-      から探してください
+  <form [formGroup]="productForm">
+    <!--  -->
+    <mat-form-field>
+      <mat-label>商品名</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="name"
+        (keyup.enter)="create()"
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>値段</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="price"
+        (keyup.enter)="create()"
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>アイコン</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="icon"
+        (keyup.enter)="create()"
+      >
+    </mat-form-field>
+    <div id="category-container">
+      <mat-form-field id="category">
+        <mat-label>カテゴリ</mat-label>
+        <mat-select formControlName="category">
+          <mat-option
+            *ngFor="let category of categories"
+            [value]="category.id"
+          >
+            {{category.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button
+        mat-fab
+        (click)="addCategory()"
+        id="category-button"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
     </div>
+  </form>
+  <div class="info">
+    アイコンは
+    <a
+      target="_blank"
+      href="https://material.io/resources/icons/"
+    >
+      こちら
+    </a>
+    から探してください
+  </div>
 </div>
-<div mat-dialog-actions align="center">
-    <button class="create" color="primary" mat-button (click)="create()" dkFocusInitial>
-        作成する
-    </button>
+<div
+  mat-dialog-actions
+  align="center"
+>
+  <button
+    class="create"
+    color="primary"
+    mat-button
+    (click)="create()"
+    dkFocusInitial
+  >
+    作成する
+  </button>
 </div>

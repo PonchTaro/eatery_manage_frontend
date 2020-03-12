@@ -28,6 +28,7 @@ import { ToolbarComponent } from './navigation/toolbar/toolbar.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    environment.production ? [] : AkitaNgDevtools,
     HttpClientModule,
     environment.production ? [] : AkitaNgDevtools.forRoot(),
     AkitaNgRouterStoreModule.forRoot(),
