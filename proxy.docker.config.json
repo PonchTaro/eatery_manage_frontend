@@ -1,0 +1,5 @@
+{
+    "/api/v1": {
+        "target": "http://webback:8000"
+    }
+}
