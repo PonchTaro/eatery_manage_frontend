@@ -1,6 +1,4 @@
-# Environment
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
-
 ## Description
-遊びでつくった
+モバイルオーダーが流行ると言ってきた友人がいてモックを作って欲しいと頼まれた。  
+初期段階だけ作ったが、友人はあまりやる気がなさそうだったのでやめた。
+バックエンドは[ここ](https://github.com/shigekato/eatery_manage_backend)
