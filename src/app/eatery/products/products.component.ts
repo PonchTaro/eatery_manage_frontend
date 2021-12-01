@@ -22,6 +22,7 @@ export class ProductsComponent implements OnInit {
     private route: ActivatedRoute,
     private eateryService: EateryService,
   ) {
+    // Routing完了後の初期動作
     this.route.params.subscribe(params => {
       this.voucherId = params['voucherId'];
       this.eateryService.getProducts(params['eatId']).subscribe(products => {
@@ -42,12 +43,17 @@ export class ProductsComponent implements OnInit {
   }
 
   openOrderDialog(product: Product): void {
-    const dialogRef = this.dialog.open(OrderComponent, {
-      width: '80%',
+    const dialogContext = {
+      width: '60vh',
+      height: '70vh',
       data: { product: product, voucherId: this.voucherId }
-    });
+    };
+    const dialogRef = this.dialog.open(OrderComponent, dialogContext);
     // ダイアログが閉じた後の動き
     dialogRef.afterClosed().subscribe(result => {
+      if (result == undefined) {
+        return;
+      }
       const snackBarRef = this._snackBar.openFromComponent(
         CompleteOrderComponent,
         { data: product, duration: 1000 }

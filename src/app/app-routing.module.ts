@@ -7,7 +7,7 @@ import { EateryTopComponent } from './eatery/eatery-top/eatery-top.component';
 const routes: Routes = [
   { path: '', component: TopComponent, pathMatch: 'full' },
   {
-    path: 'me-new/:eatId', children: [
+    path: 'fast-mng/:eatId', children: [
       {
         path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
       },

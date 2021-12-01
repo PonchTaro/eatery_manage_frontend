@@ -1,12 +1,12 @@
+$break-small: 640px;
+$break-large: 1200px;  
+
 :host {
     text-align: center;
 }
 .right {
     text-align: right;
 }
-
-$break-small: 640px;
-$break-large: 1200px;  
 
 mat-icon.product {
     @media screen and (max-width: $break-small) {
@@ -21,6 +21,4 @@ mat-icon.product {
 
 button.order {
     width: 100%;
-    color: white !important;
-    background-color: #3F51B5;
 }

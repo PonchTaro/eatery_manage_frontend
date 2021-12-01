@@ -1,6 +1,6 @@
 <h1 mat-dialog-title class="right">
     <button mat-button (click)="dialogRef.close()">
-      <mat-icon>clear</mat-icon>
+        <mat-icon>clear</mat-icon>
     </button>
 </h1>
 <div mat-dialog-content>
@@ -21,7 +21,7 @@
     </mat-form-field>
 </div>
 <div mat-dialog-actions align="center">
-  <button class="order" mat-button (click)="order(product)" dkFocusInitial>
-      注文する
-  </button>
+    <button class="order" mat-raised-button (click)="order(product)" dkFocusInitial color="primary">
+        注文する
+    </button>
 </div>

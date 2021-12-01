@@ -1,21 +1,11 @@
-
 <section class="section">
-  <mat-slide-toggle
-      class="margin"
-      [checked]="checked"
-      (change)="checked = !checked"
-  >
+  <mat-slide-toggle class="margin" [checked]="checked" (change)="checked = !checked">
   </mat-slide-toggle>
 </section>
 
-<mat-grid-list
-  cols="3"
->
+<mat-grid-list cols="3">
   <mat-grid-tile *ngFor="let table of tables">
-    <mat-card
-      (click)="tableSelected(table)"
-      [ngClass]="{using: table.is_using, available: table.is_available}"
-    >
+    <mat-card (click)="tableSelected(table)" [ngClass]="{using: table.is_using, available: table.is_available}">
       <mat-card-content>
         <ng-container *ngIf="table.is_available">
           <mat-icon>group_add</mat-icon>
@@ -36,6 +26,6 @@
 </mat-grid-list>
 
 <!-- テーブル追加ボタン -->
-<button id="create" (click)="create()" mat-fab>
-    <mat-icon>add</mat-icon>
+<button id="create" (click)="create()" mat-fab color="primary">
+  <mat-icon>add</mat-icon>
 </button>

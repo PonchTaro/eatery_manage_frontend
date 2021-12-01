@@ -27,6 +27,6 @@ export class IssueVoucherComponent {
   }
 
   goToOrderPage(eateryId: number, voucherId: number): void {
-    this.router.navigate(['me-new', eateryId, voucherId]);
+    this.router.navigate(['fast-mng', eateryId, voucherId]);
   }
 }

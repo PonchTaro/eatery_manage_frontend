@@ -15,6 +15,7 @@ import { VoucherService } from './core/voucher/voucher.service';
 export class AppComponent {
   @ViewChild('drawer') sideNav: MatDrawer;
   eatery: Eatery;
+  opened: boolean;
 
   constructor(
     private router: Router,

@@ -20,6 +20,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const MatModules = [
   MatSliderModule,
@@ -39,6 +40,7 @@ const MatModules = [
   MatMenuModule,
   MatSelectModule,
   MatSlideToggleModule,
+  LayoutModule,
 ]
 
 @NgModule({

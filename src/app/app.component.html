@@ -1,29 +1,15 @@
 <!-- ToolBar -->
 <!-- Sidenav -->
-<mat-drawer-container
-  class="container"
-  autosize
-  fullscreen
-  [hasBackdrop]="true"
->
+<mat-drawer-container class="container" autosize fullscreen [hasBackdrop]="true">
   <app-toolbar [drawer]="drawer" [eatery]="eatery"></app-toolbar>
-  <mat-drawer
-    #drawer
-    [opened]="true"
-    class="sidenav"
-    mode="side"
-  >
+  <mat-drawer #drawer [opened]="true" class="sidenav" mode="side">
     <app-sidenav></app-sidenav>
   </mat-drawer>
 
-  <div
-    [ngClass]="{
+  <div [ngClass]="{
         'at-sidenav-closed-content': !drawer.opened,
         'at-sidenav-opend-content': drawer.opened
-      }"
-    *ngIf="!drawer.opened"
-  >
-    <!-- MainContent -->
+      }" *ngIf="!drawer.opened">
     <router-outlet></router-outlet>
   </div>
 
